@@ -1,0 +1,13 @@
+{
+	"name": "tyer",
+	"version": "1.0.0",
+	"description": "A Datepicker with multi-modes of date ,range and calendar",
+	"repository": {
+		"type": "github",
+		"url": "https://github.com/Fi2zz/tyer"
+	},
+	"private": true,
+	"license": "MIT",
+	"type": "module",
+	"main": "typer.js"
+}

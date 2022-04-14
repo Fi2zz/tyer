@@ -1,0 +1,82 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>tyer</title>
+		<link rel="stylesheet" href="/style.css" />
+	</head>
+	<body>
+		<style>
+			:root {
+				--tyer-active-color: red;
+				--tyer-active-text-color: #fff;
+				--tyer-action-color: red;
+				--tyer-action-hover-color: red;
+			}
+			html,
+			body {
+				font-size: 14px;
+				padding: 20px;
+			}
+			h2 {
+				padding-left: 2rem;
+			}
+		</style>
+		<div style="display: flex">
+			<div style="width: 30rem">
+				<h2>Date Mode</h2>
+				<div id="date"></div>
+				<div id="datevalue" class="value"></div>
+			</div>
+			<hr />
+			<div>
+				<h2>Range Mode</h2>
+				<div style="width: 60rem">
+					<div id="range"></div>
+				</div>
+				<div id="rangevalue" class="value"></div>
+			</div>
+		</div>
+		<br />
+		<hr />
+		<div>
+			<h2>Calendar Mode</h2>
+			<div id="calendarvalue" class="value"></div>
+			<div id="calendar"></div>
+		</div>
+		<script type="module">
+			import Tyer from "./tyer.js";
+			function displayValue(id) {
+				return function (value) {
+					document.getElementById(id).innerHTML = value;
+				};
+			}
+
+			window._calendar = new Tyer({
+				el: document.getElementById("calendar"),
+				mode: "calendar",
+				onChange: displayValue("calendarvalue"),
+			});
+			window._calendar.setValue(
+				new Date(),
+				new Date(2022, 3, 13),
+				new Date(2022, 3, 15)
+			);
+			window._range = new Tyer({
+				el: document.getElementById("range"),
+				mode: "range",
+				onChange: displayValue("rangevalue"),
+			});
+			window._range.setValue(new Date());
+			window._date = new Tyer({
+				el: document.getElementById("date"),
+				mode: "date",
+				onChange: displayValue("datevalue"),
+				locale: "en-US",
+			});
+			window._date.setDate(new Date(2022, 3, 11));
+			window._date.setValue(new Date(2022, 3, 1), new Date(2022, 3, 13));
+		</script>
+	</body>
+</html>
