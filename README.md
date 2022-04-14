@@ -4,9 +4,6 @@ A Datepicker with multi-modes of date ,range and calendar
 
 > No IE support
 
-<img src="./img.jpeg" width="240" style='display:block'/>
-<br/>
-
 ## Install
 
 ```bash
